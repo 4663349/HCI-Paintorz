@@ -10,10 +10,10 @@ public class Window extends JFrame {
     public Window() {
  
         super();
-        setTitle("Callbacks");
-        setSize(new Dimension(800, 600));
-        setLocationRelativeTo(null);
-        setDefaultCloseOperation(EXIT_ON_CLOSE);
+        setTitle("Callbacks");							
+        setSize(new Dimension(800, 600));				//Niet wat klein?  1280 x 720 misschien? Of standaard 90% van screensize. Hoe komen we achter screen size?
+        setLocationRelativeTo(null);					
+        setDefaultCloseOperation(EXIT_ON_CLOSE);		
         getContentPane().setLayout(new BorderLayout());
  
         setVisible(true);

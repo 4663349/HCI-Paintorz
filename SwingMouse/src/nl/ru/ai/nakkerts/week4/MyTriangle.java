@@ -4,7 +4,7 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Polygon;
 import java.awt.geom.Line2D;
-
+// WERKT NIET. IS EVENTUEEL LEUK VOOR LATER, MAAR IS NIET NODIG. JE MOET MET POLYGON IETS TEKENEN
 public class MyTriangle implements Drawable {
 
 	private double x1, x2, x3, y1, y2, y3;
