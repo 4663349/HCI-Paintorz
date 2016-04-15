@@ -9,7 +9,7 @@ import java.awt.event.MouseMotionListener;
 public class InputHandler implements ActionListener {
 	private DrawPanel panel;
 	private double x1, x2, y1, y2;
-
+	private enum Mode {MOVE, CHANGE, LINE, ELLIPSE, RECTANGLE, BORDER, REMOVE}; // handiger dan overal if bladiebla
 	public InputHandler(DrawPanel panel) {
 		this.panel = panel;
 	}
