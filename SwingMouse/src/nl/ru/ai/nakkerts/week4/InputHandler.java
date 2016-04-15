@@ -87,10 +87,10 @@ public class InputHandler implements ActionListener {
 			placeEllipse();
 		} else if (e.getActionCommand().equals("Line")) { // set mode line
 			placeLine();
-		} else if (e.getActionCommand().equals("add")) { // set mode random
-			panel.addRandomShape();
-		} else if (e.getActionCommand().equals("mod")) { // set mode modrandom
-			panel.alterNextShape();
+		//} else if (e.getActionCommand().equals("add")) { // set mode random
+		//	panel.addRandomShape();
+		//} else if (e.getActionCommand().equals("mod")) { // set mode modrandom
+		//	panel.alterNextShape();
 		} else if (e.getActionCommand().equals("remove")) { // set mode remove 
 			removeClicked();
 			// panel.removePreviousShape(); //deze haalt simpelweg de laatst
