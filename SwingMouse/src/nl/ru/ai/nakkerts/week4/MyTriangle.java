@@ -49,6 +49,15 @@ public class MyTriangle implements Drawable {
 		this.y3 = (y1 + y2) / 2;
 
 	}
+	
+	public double[] getcoordinates() {
+		double[] coords = new double[4];
+		coords[0] = this.x1;
+		coords[1] = this.y1;
+		coords[2] = this.x2;
+		coords[3] = this.y2;
+		return coords;
+	}
 
 	public void setPanel(DrawPanel drawPanel) {
 	}
@@ -63,6 +72,30 @@ public class MyTriangle implements Drawable {
 	public boolean amShape(String shapeName) {
 		// TODO Auto-generated method stub
 		return false;
+	}
+
+	@Override
+	public double leftX() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double topY() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getLength() {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
+	@Override
+	public double getWidth() {
+		// TODO Auto-generated method stub
+		return 0;
 	}
 
 }

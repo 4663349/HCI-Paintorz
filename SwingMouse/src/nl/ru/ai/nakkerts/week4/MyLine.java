@@ -37,7 +37,6 @@ public class MyLine implements Drawable {
 
 	public void setColor(Color color) {
 		this.color = color;
-
 	}
 
 	@Override
@@ -45,12 +44,31 @@ public class MyLine implements Drawable {
 		if (((x1<=x && x<=x2) || (x2<=x && x<=x1))  &&  ((y1<=y && y<=y2) || (y2<=y && y<=y1))){
 			return true;
 		} else return false;
-
 	}
 
 	@Override
 	public boolean amShape(String shapeName) {
 		return shapeName == "line";
+	}
+
+	@Override
+	public double leftX() {
+		return Math.min(x1, x2);
+	}
+
+	@Override
+	public double topY() {
+		return Math.min(y1, y2);
+	}
+
+	@Override
+	public double getLength() {
+		return Math.abs(y1-y2);
+	}
+
+	@Override
+	public double getWidth() {
+		return Math.abs(x1-x2);
 	}
 
 }

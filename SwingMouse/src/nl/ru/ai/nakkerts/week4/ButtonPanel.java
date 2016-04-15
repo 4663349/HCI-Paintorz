@@ -10,10 +10,12 @@ public class ButtonPanel extends JPanel{
         JButton button1 = new JButton("Rectangle");
         JButton button2 = new JButton("Ellipse");
         JButton button3	= new JButton("Line");
+        JButton button8	= new JButton("Move");
         //JButton button4 = new JButton("add");
         //JButton button5 = new JButton("mod");
-        JButton button6 = new JButton("remove");
-        JButton button7 = new JButton("Drag");
+        JButton button6 = new JButton("Remove");
+        JButton button7 = new JButton("Resize");
+        JButton button9	= new JButton("Borders");
  
         add(button1);
         add(button2);
@@ -22,7 +24,9 @@ public class ButtonPanel extends JPanel{
         //add(button5);
         add(button6);
         add(button7);
- 
+        add(button8);
+        add(button9);
+        
         InputHandler IH = new InputHandler(panel);
  
         button1.addActionListener(IH);
@@ -32,6 +36,7 @@ public class ButtonPanel extends JPanel{
         //button5.addActionListener(IH);
         button6.addActionListener(IH);
         button7.addActionListener(IH);
- 
+        button8.addActionListener(IH);
+        button9.addActionListener(IH);
     }
 }

@@ -224,21 +224,6 @@ public class DrawPanel extends JPanel {
 		
 		repaint();
 	}
-
-	public void changeShape(double x1, double y1, double x2, double y2) { // doesn't alter shapesList in any meaningful way
-		for (int i = shapesList.size() - 1; i >= 0; i--) {
-			if (shapesList.get(i).contains(x1, y1)) {
-				Drawable temp = shapesList.get(i);
-				temp.setCoordinates(x1, y1, x2, y2);
-				shapesList.set(i, temp);
-				 	i = 0;
-				}
-				
-			}
-		
-		repaint();
-	}
-
 	
 	public void changeColor(double x1, double y1, Color color2) {
 		for (int i=shapesList.size()-1;i>=0;i--){
@@ -246,11 +231,66 @@ public class DrawPanel extends JPanel {
 				Drawable temp = shapesList.get(i);
 				temp.setColor(color2);
 				shapesList.set(i, temp);
+				i=0;
 			}
 		}
 		repaint();
 	}
+	
+public void changeShape(double x1, double y1, double x2, double y2) { // doesn't alter shapesList in any meaningful way
+		for (int i = shapesList.size() - 1; i >= 0; i--) {
+			if (shapesList.get(i).contains(x1, y1)) {
+				Drawable temp = shapesList.get(i);
+				temp.setCoordinates(x1, y1, x2, y2);
+				shapesList.set(i, temp);
+				 	i = 0;
+				}
+			}
+		repaint();
+	}
+
+public double getDiffX(double x1, double y1) {
+double diffX = -1;	
+	for (int i = shapesList.size() - 1; i >= 0; i--) {
+		if (shapesList.get(i).contains(x1, y1)) {
+			Drawable temp = shapesList.get(i);
+			double shapex1 = temp.leftX();
+			diffX = Math.abs((x1-shapex1));
+			i=0;
+			return diffX;
+			}
+	}
+	return diffX;
+}
+public double getDiffY(double x1, double y1) {
+double diffY = -1;	
+	for (int i = shapesList.size() - 1; i >= 0; i--) {
+		if (shapesList.get(i).contains(x1, y1)) {
+			Drawable temp = shapesList.get(i);
+			double shapey1 = temp.topY();
+			diffY = Math.abs((y1-shapey1));
+			i=0;
+			return diffY;
+			}
+	}
+	return diffY;
+}
+
+
+
+	public void moveShape(double diffx, double diffy, double x2, double y2) {
+		for (int i=shapesList.size()-1; i>=0; i--){
+			if (shapesList.get(i).contains(x2,y2)) { // dit is een klein beetje iffy/lelijk. Je checkt dan immers pas bij movement. Ik gok dat t wel kan tho
+				Drawable temp = shapesList.get(i);
+				double height = temp.getLength();
+				double width = temp.getWidth();
+				temp.setCoordinates((x2-diffx),(y2 - diffy),((x2-diffx)+width),((y2-diffy)+height));
+				shapesList.set(i, temp);
+				i=0; // als je dit wegcomment zul je alles bewegen op x1,y1 ipv (zoals nu) alleen de laatst geplaatste (ergo bovenste)
+				}
+		}
+		repaint();
+	} 
 
 	
-
 }

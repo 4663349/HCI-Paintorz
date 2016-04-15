@@ -27,7 +27,14 @@ public interface Drawable { // ook wel shape
 	/**
 	 * Checks String shapeName vs the name of a given shape. Returns true if identical and false if not
 	 */
-	public boolean amShape(String shapeName); 
+	public boolean amShape(String shapeName);
+
+	public double leftX();
+
+	public double topY();	
 	
+	public double getLength();
+	
+	public double getWidth();
 	
 }

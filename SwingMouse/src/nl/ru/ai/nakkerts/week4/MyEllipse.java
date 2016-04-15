@@ -9,8 +9,6 @@ public class MyEllipse implements Drawable {
 	private double x1, y1, x2, y2;
 	private Color color;
 
-	
-
 	public MyEllipse() {
 	}
 
@@ -25,19 +23,19 @@ public class MyEllipse implements Drawable {
 	public void draw(Graphics2D g) {
 		double x = getStartX(x1,x2);
 		double y = getStartY(y1,y2);
-		double width = getWidth(x1,x2);
-		double height = getHeight(y1,y2);
+		double width = Width(x1,x2);
+		double height = Height(y1,y2);
 		Ellipse2D e = new Ellipse2D.Double(x, y, width, height);
 		g.setColor(color);
 		g.fill(e);
 		g.draw(e);
 	}
 
-	private double getWidth(double x1, double x2) {
+	private double Width(double x1, double x2) {
 		return Math.abs(x1-x2);
 	}
 
-	private double getHeight(double y1, double y2) {
+	private double Height(double y1, double y2) {
 		return Math.abs(y1-y2);
 	}
 
@@ -76,5 +74,28 @@ public class MyEllipse implements Drawable {
 	@Override
 	public boolean amShape(String shapeName) {
 		return shapeName == "Ellipse";
+	}
+
+	@Override
+	public double leftX() {
+		// TODO Auto-generated method stub
+		return Math.min(x1, x2);
+	}
+	@Override
+	public double topY() {
+		// TODO Auto-generated method stub
+		return Math.min(y1, y2);
+	}
+
+	@Override
+	public double getLength() {
+		// TODO Auto-generated method stub
+		return Height(y1,y2);
+	}
+
+	@Override
+	public double getWidth() {
+		// TODO Auto-generated method stub
+		return Width(x1,x2);
 	}
 }

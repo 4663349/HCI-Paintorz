@@ -8,7 +8,7 @@ public class MyRectangle implements Drawable {
 
 	private double x1, y1, x2, y2;   // je krijgt meestal een x1 en een y1 mee als startpunt en een x2 en een y2 als eindpunt. Handig is om x1 en y1 niet te updaten, maar x2 en y2 wel.
 	private Color color;
-
+	
 	public MyRectangle() {
 	}
 
@@ -23,19 +23,19 @@ public class MyRectangle implements Drawable {
 	public void draw(Graphics2D g) {
 		double x = getStartX();
 		double y = getStartY();
-		double width = getWidth();
-		double height = getHeight();
+		double width = Width();
+		double height = Height();
 		Rectangle2D r = new Rectangle2D.Double(x, y, width, height);  // tekent als volgt x,y als startlocatie en dan width naar rechts en height omlaag
 		g.setColor(color);
 		g.fill(r);
 		g.draw(r);
 	}
 
-	private double getWidth() {
+	private double Width() {
 		return Math.abs(x1 - x2);  	//verschil tussen x1 en x2 is natuurlijk de breedte
 	}
 
-	private double getHeight() {  	// verschil tussen y1 en y2 is natuurlijk de hoogte. Waarom zo aan je width en niet direct meegeven?
+	private double Height() {  	// verschil tussen y1 en y2 is natuurlijk de hoogte. Waarom zo aan je width en niet direct meegeven?
 									// vooral bij dingen als drag wil je in de min kunnen gaan (dan teken je namelijk vanuit x1 en y1 naar linksboven, anders is alleen naar rechtsbeneden mogelijk)
 		return Math.abs(y1 - y2); 
 	}
@@ -68,11 +68,34 @@ public class MyRectangle implements Drawable {
 		} else return false;
 		
 	}
-
+	
 	@Override
 	public boolean amShape(String shapeName) {
 		// TODO Auto-generated method stub
 		return shapeName == "Rectangle";
+	}
+
+	@Override
+	public double leftX() {
+		// TODO Auto-generated method stub
+		return Math.min(x1,x2);
+	}
+	
+	@Override
+	public double topY() {
+		// TODO Auto-generated method stub
+		return Math.min(y1, y2);
+	}
+
+	@Override
+	public double getLength() {
+		return Height();
+	}
+
+	@Override
+	public double getWidth() {
+		// TODO Auto-generated method stub
+		return Width();
 	}
 
 }
